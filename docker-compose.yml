@@ -21,7 +21,7 @@ services:
   #      - LOGGER_LEVEL=DEBUG
   #
   #       Alternative WebDriver/selenium URL, do not use "'s or 's!
-        - WEBDRIVER_URL=http://browser-chrome:4444/wd/hub
+  #      - WEBDRIVER_URL=http://browser-chrome:4444/wd/hub
   #
   #       WebDriver proxy settings webdriver_proxyType, webdriver_ftpProxy, webdriver_noProxy,
   #                                webdriver_proxyAutoconfigUrl, webdriver_autodetect,
@@ -30,7 +30,7 @@ services:
   #             https://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.common.proxy
   #
   #       Alternative Playwright URL, do not use "'s or 's!
-  #      - PLAYWRIGHT_DRIVER_URL=ws://playwright-chrome:3000
+        - PLAYWRIGHT_DRIVER_URL=ws://playwright-chrome:3000
   #
   #       Playwright proxy settings playwright_proxy_server, playwright_proxy_bypass, playwright_proxy_username, playwright_proxy_password
   #
@@ -67,7 +67,7 @@ services:
      # If WEBDRIVER or PLAYWRIGHT are enabled, changedetection container depends on that
      # and must wait before starting (substitute "browser-chrome" with "playwright-chrome" if last one is used)
     depends_on:
-        browser-chrome:
+        playwright-chrome:
             condition: service_started
 
      # Used for fetching pages via Playwright+Chrome where you need Javascript support.
